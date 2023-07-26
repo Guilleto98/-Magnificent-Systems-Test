@@ -3,6 +3,7 @@ html, body{
     padding:0;
     min-width: 100%;
     position: initial;
+    background-color: #92AC86;
 }
 
 
@@ -16,6 +17,7 @@ html, body{
 .factsMainHeading {
     height: 103px;
     font-family: sans-serif;
+    color: #FAFAFA;
     font-style: normal;
     font-weight: 600;
     font-size: 96px;
@@ -48,6 +50,7 @@ html, body{
 
 .factsSecondaryHeading {
     display: flex;
+    color: #FAFAFA;
     justify-content: space-around;
     width: 946px;
     height: 53px;
@@ -97,16 +100,47 @@ html, body{
     width: auto;
 }
 
+.accordionContainer{
+    color: #FAFAFA;
+    font-size: 20px;
+}
+
 .factItem {
     display: flex;
-    border-bottom: 2px solid #e6e6e6;
-    justify-content: space-between;
+    width: 400px;
+    justify-content: center;
     align-items: center;
     padding: 20px;
     border-radius: 10px;
     margin: 10px;
+    background-color: #3e413c;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
 }
+
+.factItem.active {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #3e413c;
+    color: #e6e6e6;
+}
+.accordionContainer.active{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.apiText.active{
+    font-size: 20px;
+}
+
+.additionalInfo{
+    display: none;
+}
+
+.additionalInfo.active {
+    display: block;
+  }
 
 .factDesription {
     width: 708px;
@@ -120,6 +154,8 @@ html, body{
     display: flex;
     align-items: center;
 }
+
+
 @media screen and (max-width: 950px) {
     .factDesription{
     font-size: 24px;
