@@ -108,7 +108,7 @@ html, body{
 
 .factItem {
     display: flex;
-    width: 400px;
+    width: 275px;
     justify-content: center;
     align-items: center;
     padding: 20px;
