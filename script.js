@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = await response.json();
         const apiText = factItem.querySelector('.apiText');
         apiText.textContent = data.fact;
-        img.style.width = '60%'
+        img.style.width = '100%'
     }
 
     const getCatImg = async ()=>{
