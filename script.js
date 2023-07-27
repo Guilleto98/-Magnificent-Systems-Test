@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
   const factElements = document.querySelectorAll('.factDescription');
 
@@ -5,6 +6,22 @@ document.addEventListener('DOMContentLoaded', () => {
     element.addEventListener('click', async () => {
       const factItem = element.parentElement;
       const activeItem = document.querySelector('.factItem.active');
+      const img = element.parentElement.querySelector('.apiImages img')
+
+      const getCatFact = async ()=>{
+        const response = await fetch('https://catfact.ninja/fact');
+        const data = await response.json();
+        const apiText = factItem.querySelector('.apiText');
+        apiText.textContent = data.fact;
+        img.style.width = '60%'
+    }
+
+    const getCatImg = async ()=>{
+        const getCatImg = await fetch('https://api.thecatapi.com/v1/images/search');
+        const infoCats = await getCatImg.json()
+        const urlImg = infoCats[0].url
+        img.src = urlImg
+    }
 
       if (activeItem && activeItem !== factItem) {
         activeItem.classList.remove('active');
@@ -31,10 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const accordionSign = factItem.querySelector('.accordionSign');
 
       if (additionalInfo.classList.contains('active')) {
-        const response = await fetch('https://catfact.ninja/fact');
-        const data = await response.json();
-        const apiText = factItem.querySelector('.apiText');
-        apiText.textContent = data.fact;
+
+        getCatFact()
+        getCatImg()
+
+
         accordionText.textContent = 'Click to close fact';
         accordionSign.textContent = '-';
       } else {
@@ -42,5 +60,19 @@ document.addEventListener('DOMContentLoaded', () => {
         accordionSign.textContent = '+';
       }
     });
+  });
+
+  const factListImg = document.getElementById('factListImg');
+  const logo = document.getElementById('logo');
+  const logoInvertido = document.getElementById('logoInvertido')
+
+  factListImg.addEventListener('mouseover', () => {
+    logo.style.display = 'none';
+    logoInvertido.style.display = 'block'
+  });
+
+  factListImg.addEventListener('mouseout', () => {
+    logo.style.display = 'block';
+    logoInvertido.style.display = 'none'
   });
 });

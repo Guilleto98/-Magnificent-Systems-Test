@@ -104,19 +104,38 @@ html, body{
 .factList {
     display: flex;
     flex-direction: column;
-    width: auto;
+    width: 100%;
     padding: 15px;
 }
 
+#logoInvertido{
+    display: none;
+}
+
+.factItem:hover{
+    background-color: #161716;
+}
+
+.factList img{
+    width: 50px;
+}
+
+#factListImg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
 .accordionContainer{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
     color: #FAFAFA;
     font-size: 20px;
 }
 
 .factItem {
-    display: flex;
-    width: 275px;
-    justify-content: center;
     align-items: center;
     padding: 20px;
     border-radius: 10px;
@@ -127,9 +146,6 @@ html, body{
 }
 
 .factItem.active {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
     background-color: #3e413c;
     color: #e6e6e6;
 }
@@ -147,11 +163,16 @@ html, body{
 }
 
 .additionalInfo.active {
-    display: block;
+    display: flex;
+    justify-content: space-between;
   }
 
+  .apiImages{
+    display: flex;
+    justify-content: end;
+  }
 .factDesription {
-    width: 708px;
+    width: 100%;
     min-height: 65px;
     font-family: sans-serif;
     font-style: normal;
@@ -159,8 +180,6 @@ html, body{
     font-size: 36px;
     line-height: 40px;
     letter-spacing: -0.03em;
-    display: flex;
-    align-items: center;
 }
 
 
