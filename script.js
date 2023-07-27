@@ -6,14 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
     element.addEventListener('click', async () => {
       const factItem = element.parentElement;
       const activeItem = document.querySelector('.factItem.active');
+      const apiImages = document.querySelector('.apiImages')
       const img = element.parentElement.querySelector('.apiImages img')
 
       const getCatFact = async ()=>{
         const response = await fetch('https://catfact.ninja/fact');
         const data = await response.json();
+        const limitedText = data.fact.slice(0, 60);
         const apiText = factItem.querySelector('.apiText');
-        apiText.textContent = data.fact;
-        img.style.width = '100%'
+        apiText.textContent = limitedText;
     }
 
     const getCatImg = async ()=>{
@@ -21,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const infoCats = await getCatImg.json()
         const urlImg = infoCats[0].url
         img.src = urlImg
+        img.style.width = '100%'
+        apiImages.style.padding = '10px'
     }
 
       if (activeItem && activeItem !== factItem) {
